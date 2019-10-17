@@ -6,6 +6,7 @@ import './ToDoList.css';
 // delete task
 // edit task
 // check done tasks (checkbox)
+// strike out task is it done
 
 class ToDoList extends Component {
 
@@ -86,7 +87,9 @@ class ToDoList extends Component {
 
                     {
                         this.state.tasks.map((task) => {
-                            return <div className='task'>
+                            // будет добавляться два класса: task и done, если таска выполнена
+                            // если не выполнена, то будет добавляться только класс: task
+                            return <div className={!task.isDone ? 'task done' : 'task'}>
                                 {/* навесила обработчик события на клик по чекбоксу */}
                                 <input type='checkbox' onClick={this.toggleTaskStatus.bind(this, task)} />
                                 {task.title}

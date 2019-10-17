@@ -21,3 +21,11 @@
 .todolist .task:hover .delete {
   display: inline-block;
 }
+
+/* если таску добавился класс: done
+это значит, что чекбокс стал активным
+значит перечёркиваем таску */
+/* сейчас по дефолту таски перечёркнуты */
+.todolist .task.done {
+  text-decoration: line-through;
+}
