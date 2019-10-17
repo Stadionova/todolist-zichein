@@ -22,6 +22,8 @@ class ToDoList extends Component {
     // затем в task присваиваю этот новый массив
     // e - это event
 
+    // метод, добавляющий новую таску:
+
     createNewTask(e) {
         if (e.key === 'Enter') {
             // новый синтаксис spread [...] вместо:
@@ -42,6 +44,17 @@ class ToDoList extends Component {
         }
     }
 
+    // метод, удаляющий таску:
+    // где task == item
+
+    deleteTask(task, e) {
+        this.setState({
+            tasks: this.state.tasks.filter((t) => {
+                return t !== task;
+            })
+        });
+    }
+
     render() {
         return (
             <div className='todolist'>
@@ -51,10 +64,12 @@ class ToDoList extends Component {
                 <div className='tasks'>
 
                     {
-                        this.state.tasks.map((item) => {
+                        this.state.tasks.map((task) => {
                             return <div className='task'>
-                                {item}
-                                <span className='delete'>x</span>
+                                {task}
+                                {/* на span нужно повесить обработчик: deleteTask события onclick */}
+                                {/* где item - это таск, который нужно удалить */}
+                                <span className='delete' onClick={this.deleteTask.bind(this, task)}>x</span>
                             </div>
                         })
                     }
