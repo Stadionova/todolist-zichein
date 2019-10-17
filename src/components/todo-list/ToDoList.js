@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './ToDoList.css';
 import Task from './Task.js';
+import ToDoListFooter from './ToDoListFooter.js';
 
 // todolist:
 // add task
@@ -114,6 +115,7 @@ class ToDoList extends Component {
                         })
                     }
                 </div>
+                <ToDoListFooter />
             </div >
         );
     }
