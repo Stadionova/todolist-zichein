@@ -15,17 +15,22 @@ class ToDoList extends Component {
 
         super();
 
+        this.newIndex = 3;
+
         this.state = {
             tasks: [
                 {
+                    id: 0,
                     title: 'learn js',
                     isDone: false
                 },
                 {
+                    id: 1,
                     title: 'learn react',
                     isDone: false
                 },
                 {
+                    id: 2,
                     title: 'learn layout',
                     isDone: false
                 }
@@ -54,37 +59,29 @@ class ToDoList extends Component {
             this.setState({
                 // все элементы старого массива: ...this.state.tasks
                 // новый таск: e.currentTarget.value
-                tasks: [...this.state.tasks, { title: e.currentTarget.value, isDone: false }]
+                tasks: [...this.state.tasks, {
+                    title: e.currentTarget.value,
+                    isDone: false,
+                    id: this.newIndex
+                }]
             })
             // и value в input должен очищаться
             e.currentTarget.value = '';
+            this.newIndex++;
         }
     }
 
     // метод, удаляющий таску:
 
-    deleteTask(task, e) {
-        this.setState({
-            tasks: this.state.tasks.filter((t) => {
-                return t !== task;
-            })
+    deleteTask(task) {
+
+        const newTasksList = this.state.tasks.filter((t) => {
+            return t.id !== task.id;
         });
-    }
 
-    // метод, помечающий таску как выполненную:
-
-    toggleTaskStatus(task, e) {
-        task.isDone = !task.isDone;
-        this.forceUpdate();
-
-        // сейчас выполненный таски перечёркиваются верно
-        // но при удалении перечёркнутой таски
-        // перечёркнутая таска удаляется успешно
-        // и активным становится чекбокс следующей таски
-        // чего быть не должно
-        // this.setState({
-        //     tasks: this.state.tasks
-        // });
+        this.setState({
+            tasks: newTasksList
+        });
     }
 
     render() {
@@ -96,10 +93,16 @@ class ToDoList extends Component {
                 <div className='tasks'>
 
                     {
-                        this.state.tasks.map((task) => {
+                        this.state.tasks.map((task, index) => {
                             // будет добавляться два класса: task и done, если таска выполнена
                             // если не выполнена, то будет добавляться только класс: task
-                            return <Task title='1212' isDone={false} />
+
+                            // эти title и isDone попадаю в файл Task.js в props
+                            // чтобы не передавать все проперти по отдельности, передадим сам таск
+
+                            // return <Task title={task.title} isDone={task.isDone} />
+                            return <Task task={task} deleteCallback={this.deleteTask.bind(this)} key={task.id} />
+
                             // <div className={task.isDone ? 'task done' : 'task'}>
                             //     {/* навесила обработчик события на клик по чекбоксу */}
                             //     <input type='checkbox' onClick={this.toggleTaskStatus.bind(this, task)} />
