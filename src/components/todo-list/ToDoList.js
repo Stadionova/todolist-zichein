@@ -52,7 +52,7 @@ class ToDoList extends Component {
             this.setState({
                 // все элементы старого массива: ...this.state.tasks
                 // новый таск: e.currentTarget.value
-                tasks: [...this.state.tasks, e.currentTarget.value]
+                tasks: [...this.state.tasks, { title: e.currentTarget.value, isDone: false }]
             })
             // и value в input должен очищаться
             e.currentTarget.value = '';
@@ -81,7 +81,7 @@ class ToDoList extends Component {
                     {
                         this.state.tasks.map((task) => {
                             return <div className='task'>
-                                {task}
+                                {task.title}
                                 {/* на span нужно повесить обработчик: deleteTask события onclick */}
                                 {/* где item - это таск, который нужно удалить */}
                                 <span className='delete' onClick={this.deleteTask.bind(this, task)}>x</span>
