@@ -38,3 +38,7 @@
 .todolist .task.done {
   text-decoration: line-through;
 }
+
+.todolist .todolist-footer {
+  display: flex;
+}
