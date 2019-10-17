@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './ToDoList.css';
+import Task from './Task.js';
 
 // todolist:
 // add task
@@ -61,7 +62,6 @@ class ToDoList extends Component {
     }
 
     // метод, удаляющий таску:
-    // где task == item
 
     deleteTask(task, e) {
         this.setState({
@@ -75,15 +75,16 @@ class ToDoList extends Component {
 
     toggleTaskStatus(task, e) {
         task.isDone = !task.isDone;
+        this.forceUpdate();
 
         // сейчас выполненный таски перечёркиваются верно
         // но при удалении перечёркнутой таски
         // перечёркнутая таска удаляется успешно
         // и активным становится чекбокс следующей таски
         // чего быть не должно
-        this.setState({
-            tasks: this.state.tasks
-        });
+        // this.setState({
+        //     tasks: this.state.tasks
+        // });
     }
 
     render() {
@@ -98,17 +99,17 @@ class ToDoList extends Component {
                         this.state.tasks.map((task) => {
                             // будет добавляться два класса: task и done, если таска выполнена
                             // если не выполнена, то будет добавляться только класс: task
-                            return <div className={task.isDone ? 'task done' : 'task'}>
-                                {/* навесила обработчик события на клик по чекбоксу */}
-                                <input type='checkbox' onClick={this.toggleTaskStatus.bind(this, task)} />
-                                {task.title}
-                                {/* на span нужно повесить обработчик: deleteTask события onclick */}
-                                {/* где item - это таск, который нужно удалить */}
-                                <span className='delete' onClick={this.deleteTask.bind(this, task)}>x</span>
-                            </div>
+                            return <Task title='1212' isDone={false} />
+                            // <div className={task.isDone ? 'task done' : 'task'}>
+                            //     {/* навесила обработчик события на клик по чекбоксу */}
+                            //     <input type='checkbox' onClick={this.toggleTaskStatus.bind(this, task)} />
+                            //     {task.title}
+                            //     {/* на span нужно повесить обработчик: deleteTask события onclick */}
+                            //     {/* где item - это таск, который нужно удалить */}
+                            //     <span className='delete' onClick={this.deleteTask.bind(this, task)}>x</span>
+                            // </div>
                         })
                     }
-
                 </div>
             </div >
         );
