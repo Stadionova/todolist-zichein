@@ -5,7 +5,7 @@ import './ToDoList.css';
 // add task
 // delete task
 // edit task
-// check done tasks
+// check done tasks (checkbox)
 
 class ToDoList extends Component {
 
@@ -70,6 +70,12 @@ class ToDoList extends Component {
         });
     }
 
+    // метод, помечающий таску как выполненную:
+
+    toggleTaskStatus(task, e) {
+        task.isDone = !task.isDone;
+    }
+
     render() {
         return (
             <div className='todolist'>
@@ -81,6 +87,8 @@ class ToDoList extends Component {
                     {
                         this.state.tasks.map((task) => {
                             return <div className='task'>
+                                {/* навесила обработчик события на клик по чекбоксу */}
+                                <input type='checkbox' onClick={this.toggleTaskStatus.bind(this, task)} />
                                 {task.title}
                                 {/* на span нужно повесить обработчик: deleteTask события onclick */}
                                 {/* где item - это таск, который нужно удалить */}
@@ -90,7 +98,7 @@ class ToDoList extends Component {
                     }
 
                 </div>
-            </div>
+            </div >
         );
     }
 }
