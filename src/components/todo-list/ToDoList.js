@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import './ToDoList.css';
 
+// todolist:
+// add task
+// delete task
+// edit task
+
 class ToDoList extends Component {
 
     constructor(props) {
@@ -47,7 +52,10 @@ class ToDoList extends Component {
 
                     {
                         this.state.tasks.map((item) => {
-                            return <div className='task'>{item}</div>
+                            return <div className='task'>
+                                {item}
+                                <span className='delete'>x</span>
+                            </div>
                         })
                     }
 

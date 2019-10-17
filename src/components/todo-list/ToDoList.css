@@ -6,3 +6,18 @@
   border: 1px solid gray;
   margin-bottom: 50px;
 }
+
+.todolist .task .delete {
+  /* крестики удаления раположила справа от каждого таска */
+  float: right;
+  color: red;
+  /* при наведении на крестик курсор мыши меняется на палец */
+  cursor: pointer;
+  /* изначально крестики не видно, видно будет при hover на task */
+  display: none;
+}
+
+/* если на конкретной таске будет hover, то крестик delete появится */
+.todolist .task:hover .delete {
+  display: inline-block;
+}
