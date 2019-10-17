@@ -10,14 +10,29 @@ class ToDoList extends Component {
         this.state = {
             tasks: ['learn js', 'learn react', 'learn layout']
         };
+    }
 
+    // создаю метод, который будет принимать event
+    // при нажатии на клавишу enter, пушу новый таск
+    // затем в task присваиваю этот новый массив
+    // e - это event
+
+    createNewTask(e) {
+        if (e.key === 'Enter') {
+            let newTasksList = this.state.tasks;
+            newTasksList.push(e.currentTarget.value);
+
+            this.setState({
+                tasks: newTasksList
+            })
+        }
     }
 
     render() {
         return (
             <div className='todolist'>
                 <div className="heder">
-                    <input />
+                    <input onKeyPress={this.createNewTask.bind(this)} />
                 </div>
                 <div className='tasks'>
 
