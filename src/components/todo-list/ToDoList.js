@@ -5,6 +5,7 @@ import './ToDoList.css';
 // add task
 // delete task
 // edit task
+// check done tasks
 
 class ToDoList extends Component {
 
@@ -13,7 +14,21 @@ class ToDoList extends Component {
         super();
 
         this.state = {
-            tasks: ['learn js', 'learn react', 'learn layout']
+            tasks: [
+                {
+                    title: 'learn js',
+                    isDone: false
+                },
+                {
+                    title: 'learn react',
+                    isDone: false
+                },
+                {
+                    title: 'learn layout',
+                    isDone: false
+                }
+            ]
+            // объекты вместо массива ['learn js', 'learn react', 'learn layout']
         };
     }
 
