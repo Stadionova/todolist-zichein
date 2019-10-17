@@ -75,6 +75,15 @@ class ToDoList extends Component {
 
     toggleTaskStatus(task, e) {
         task.isDone = !task.isDone;
+
+        // сейчас выполненный таски перечёркиваются верно
+        // но при удалении перечёркнутой таски
+        // перечёркнутая таска удаляется успешно
+        // и активным становится чекбокс следующей таски
+        // чего быть не должно
+        this.setState({
+            tasks: this.state.tasks
+        });
     }
 
     render() {
@@ -89,7 +98,7 @@ class ToDoList extends Component {
                         this.state.tasks.map((task) => {
                             // будет добавляться два класса: task и done, если таска выполнена
                             // если не выполнена, то будет добавляться только класс: task
-                            return <div className={!task.isDone ? 'task done' : 'task'}>
+                            return <div className={task.isDone ? 'task done' : 'task'}>
                                 {/* навесила обработчик события на клик по чекбоксу */}
                                 <input type='checkbox' onClick={this.toggleTaskStatus.bind(this, task)} />
                                 {task.title}
