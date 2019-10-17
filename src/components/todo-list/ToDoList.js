@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './ToDoList.css';
 import Task from './Task.js';
 import ToDoListFooter from './ToDoListFooter.js';
+import ToDoListTaskCreator from './ToDoListTaskCreator.js';
 
 // todolist:
 // add task
@@ -47,29 +48,21 @@ class ToDoList extends Component {
 
     // метод, добавляющий новую таску:
 
-    createNewTask(e) {
-        if (e.key === 'Enter') {
-            // новый синтаксис spread [...] вместо:
-            // let newTasksList = this.state.tasks;
-            // при нажатии на enter новый таск должен пушиться
-            // newTasksList.push(e.currentTarget.value);
-            // создаю новый массив, который будет состоять из старого массива и нового таска
-            // эта же запись, но длинней, чтобы не перечислять все элементы, которых может быть очень много:
-            // tasks: [this.state.tasks[0], this.state.tasks[1], this.state.tasks[2]]
+    createNewTask(task) {
+        // if (e.key === 'Enter') {
+        // новый синтаксис spread [...] вместо:
+        // let newTasksList = this.state.tasks;
+        // при нажатии на enter новый таск должен пушиться
+        // newTasksList.push(e.currentTarget.value);
+        // создаю новый массив, который будет состоять из старого массива и нового таска
+        // эта же запись, но длинней, чтобы не перечислять все элементы, которых может быть очень много:
+        // tasks: [this.state.tasks[0], this.state.tasks[1], this.state.tasks[2]]
 
-            this.setState({
-                // все элементы старого массива: ...this.state.tasks
-                // новый таск: e.currentTarget.value
-                tasks: [...this.state.tasks, {
-                    title: e.currentTarget.value,
-                    isDone: false,
-                    id: this.newIndex
-                }]
-            })
-            // и value в input должен очищаться
-            e.currentTarget.value = '';
-            this.newIndex++;
-        }
+        this.setState({
+            // все элементы старого массива: ...this.state.tasks
+            // новый таск: e.currentTarget.value
+            tasks: [...this.state.tasks, task]
+        });
     }
 
     // метод, удаляющий таску:
@@ -88,9 +81,7 @@ class ToDoList extends Component {
     render() {
         return (
             <div className='todolist'>
-                <div className="heder">
-                    <input onKeyPress={this.createNewTask.bind(this)} />
-                </div>
+                <ToDoListTaskCreator onCreate={this.createNewTask.bind(this)} />
                 <div className='tasks'>
 
                     {

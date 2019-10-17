@@ -49,6 +49,14 @@
 }
 
 .todolist .todolist-footer button {
-    margin: 10px;
-    margin-top: 0px;
-  }
+  margin: 10px;
+  margin-top: 0px;
+  outline: none;
+  border: none;
+  border: 1px solid black;
+  padding: 3px 15px 3px 15px;
+}
+
+.todolist .todolist-footer .buttons button:hover {
+  background-color: rgb(185, 158, 211);
+}
