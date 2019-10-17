@@ -22,7 +22,7 @@ class Task extends Component {
     // метод, удаляющий таску:
 
     deleteTask(e) {
-        this.parentDeleteCallback(this.state.task);
+        this.parentDeleteCallback(this.state.task.id);
     }
 
     // метод, помечающий таску как выполненную:

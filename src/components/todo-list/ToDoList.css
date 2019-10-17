@@ -7,6 +7,11 @@
   margin-bottom: 50px;
 }
 
+/* при наведении на таск мыши, таск окрашивается в другой цвет */
+.todolist .task:hover {
+  background-color: rgb(185, 158, 211);
+}
+
 .todolist .task .delete {
   /* крестики удаления раположила справа от каждого таска */
   float: right;

@@ -73,10 +73,10 @@ class ToDoList extends Component {
 
     // метод, удаляющий таску:
 
-    deleteTask(task) {
+    deleteTask(taskId) {
 
         const newTasksList = this.state.tasks.filter((t) => {
-            return t.id !== task.id;
+            return t.id !== taskId;
         });
 
         this.setState({
