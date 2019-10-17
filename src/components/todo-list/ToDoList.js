@@ -20,7 +20,11 @@ class ToDoList extends Component {
     createNewTask(e) {
         if (e.key === 'Enter') {
             let newTasksList = this.state.tasks;
+            // при нажатии на enter новый таск должен пушиться
             newTasksList.push(e.currentTarget.value);
+
+            // и value в input должен очищаться
+            e.currentTarget.value = '';
 
             this.setState({
                 tasks: newTasksList
