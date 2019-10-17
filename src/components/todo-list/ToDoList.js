@@ -19,16 +19,21 @@ class ToDoList extends Component {
 
     createNewTask(e) {
         if (e.key === 'Enter') {
-            let newTasksList = this.state.tasks;
+            // новый синтаксис spread [...] вместо:
+            // let newTasksList = this.state.tasks;
             // при нажатии на enter новый таск должен пушиться
-            newTasksList.push(e.currentTarget.value);
-
-            // и value в input должен очищаться
-            e.currentTarget.value = '';
+            // newTasksList.push(e.currentTarget.value);
+            // создаю новый массив, который будет состоять из старого массива и нового таска
+            // эта же запись, но длинней, чтобы не перечислять все элементы, которых может быть очень много:
+            // tasks: [this.state.tasks[0], this.state.tasks[1], this.state.tasks[2]]
 
             this.setState({
-                tasks: newTasksList
+                // все элементы старого массива: ...this.state.tasks
+                // новый таск: e.currentTarget.value
+                tasks: [...this.state.tasks, e.currentTarget.value]
             })
+            // и value в input должен очищаться
+            e.currentTarget.value = '';
         }
     }
 
