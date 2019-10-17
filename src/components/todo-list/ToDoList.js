@@ -8,7 +8,7 @@ class ToDoList extends Component {
         super();
 
         this.state = {
-
+            tasks: ['learn js', 'learn react', 'learn layout']
         };
 
     }
@@ -16,8 +16,21 @@ class ToDoList extends Component {
     render() {
         return (
             <div className='todolist'>
-                todolist will be here
+                <div className="heder">
+                    <input />
+                </div>
+                <div className='tasks'>
+
+                    {
+                        this.state.tasks.map((item) => {
+                            return <div className='task'>{item}</div>
+                        })
+                    }
+
+                </div>
             </div>
         );
     }
 }
+
+export default ToDoList;
