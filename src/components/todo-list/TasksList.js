@@ -15,8 +15,8 @@ class TasksList extends Component {
                 {
                     this.props.tasks.map((task, index) => {
                         return <Task task={task}
-                            updateCallBack={this.props.onUpdate}
-                            deleteCallBack={this.props.onDelete}
+                            updateCallback={this.props.onUpdate}
+                            deleteCallback={this.props.onDelete}
                             key={task.id} />
                     })
                 }

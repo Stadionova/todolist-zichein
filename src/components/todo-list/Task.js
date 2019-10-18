@@ -30,7 +30,7 @@ class Task extends Component {
             ...this.props.task
         };
 
-        task.isDone = !this.isDone;
+        task.isDone = !task.isDone;
         this.parentUpdateCallback(task);
 
     }
