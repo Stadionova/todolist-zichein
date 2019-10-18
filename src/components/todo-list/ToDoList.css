@@ -27,29 +27,21 @@ input {
   margin: 5px;
 }
 
-/* при наведении на таск мыши, таск окрашивается в другой цвет */
 .todolist .task:hover {
   background-color: #c085a1;
 }
 
 .todolist .task .delete {
-  /* крестики удаления раположила справа от каждого таска */
   float: right;
   color: black;
-  /* при наведении на крестик курсор мыши меняется на палец */
   cursor: pointer;
-  /* изначально крестики не видно, видно будет при hover на task */
   display: none;
 }
 
-/* если на конкретной таске будет hover, то крестик delete появится */
 .todolist .task:hover .delete {
   display: inline-block;
 }
 
-/* если таску добавился класс: done
-это значит, что чекбокс стал активным
-значит перечёркиваем таску */
 .todolist .task.done {
   text-decoration: line-through;
 }
@@ -64,14 +56,25 @@ input {
 }
 
 .todolist .todolist-footer button {
-  margin: 10px;
-  margin-top: 0px;
+  margin: 5px;
+  width: 100px;
+  margin-top: 10px;
+  margin-right: 25px;
   outline: none;
   border: none;
   border: 1px solid rgb(128, 123, 123);
   padding: 3px 15px 3px 15px;
 }
 
+.countTasks {
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
 .todolist .todolist-footer .buttons button:hover {
   background-color: #c8accf;
+}
+
+.buttons button {
+  border-radius: 5px;
 }

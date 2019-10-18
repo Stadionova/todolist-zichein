@@ -10,8 +10,6 @@ class ToDoListTaskCreator extends Component {
 
     }
 
-    // метод, добавляющий новую таску:
-
     createNewTask(e) {
         if (e.key === 'Enter') {
             const newTask = {
