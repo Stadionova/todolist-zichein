@@ -5,6 +5,21 @@
   padding: 30px;
   border: 1px solid gray;
   margin-bottom: 50px;
+  border-radius: 15px;
+}
+
+input {
+  background-color: #c8accf;
+  text-align: left;
+  outline: 0 !important;
+  border: none;
+  opacity: 0.90;
+  border-width: 2px;
+  border-color: rgb(104, 101, 101);
+  border-top-left-radius: 1px;
+  border-top-right-radius: 1px;
+  border: 1px solid gray;
+  padding-left: 5px;
 }
 
 .todolist .task {
@@ -14,13 +29,13 @@
 
 /* при наведении на таск мыши, таск окрашивается в другой цвет */
 .todolist .task:hover {
-  background-color: rgb(185, 158, 211);
+  background-color: #c085a1;
 }
 
 .todolist .task .delete {
   /* крестики удаления раположила справа от каждого таска */
   float: right;
-  color: red;
+  color: black;
   /* при наведении на крестик курсор мыши меняется на палец */
   cursor: pointer;
   /* изначально крестики не видно, видно будет при hover на task */
@@ -53,10 +68,10 @@
   margin-top: 0px;
   outline: none;
   border: none;
-  border: 1px solid black;
+  border: 1px solid rgb(128, 123, 123);
   padding: 3px 15px 3px 15px;
 }
 
 .todolist .todolist-footer .buttons button:hover {
-  background-color: rgb(185, 158, 211);
+  background-color: #c8accf;
 }
