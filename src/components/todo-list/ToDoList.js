@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './ToDoList.css';
-import Task from './Task.js';
 import ToDoListFooter from './ToDoListFooter.js';
 import ToDoListTaskCreator from './ToDoListTaskCreator.js';
+import TasksList from './TasksList.js';
 
 // todolist:
 // add task
@@ -13,11 +13,9 @@ import ToDoListTaskCreator from './ToDoListTaskCreator.js';
 
 class ToDoList extends Component {
 
-    constructor(props) {
+    constructor() {
 
         super();
-
-        this.newIndex = 3;
 
         this.state = {
             tasks: [
@@ -82,30 +80,8 @@ class ToDoList extends Component {
         return (
             <div className='todolist'>
                 <ToDoListTaskCreator onCreate={this.createNewTask.bind(this)} />
-                <div className='tasks'>
-
-                    {
-                        this.state.tasks.map((task, index) => {
-                            // будет добавляться два класса: task и done, если таска выполнена
-                            // если не выполнена, то будет добавляться только класс: task
-
-                            // эти title и isDone попадаю в файл Task.js в props
-                            // чтобы не передавать все проперти по отдельности, передадим сам таск
-
-                            // return <Task title={task.title} isDone={task.isDone} />
-                            return <Task task={task} deleteCallback={this.deleteTask.bind(this)} key={task.id} />
-
-                            // <div className={task.isDone ? 'task done' : 'task'}>
-                            //     {/* навесила обработчик события на клик по чекбоксу */}
-                            //     <input type='checkbox' onClick={this.toggleTaskStatus.bind(this, task)} />
-                            //     {task.title}
-                            //     {/* на span нужно повесить обработчик: deleteTask события onclick */}
-                            //     {/* где item - это таск, который нужно удалить */}
-                            //     <span className='delete' onClick={this.deleteTask.bind(this, task)}>x</span>
-                            // </div>
-                        })
-                    }
-                </div>
+                <TasksList tasks={this.state.tasks}
+                    onDelete={this.deleteTask.bind(this)} />
                 <ToDoListFooter />
             </div >
         );
