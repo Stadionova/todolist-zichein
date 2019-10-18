@@ -17,9 +17,7 @@ class Task extends Component {
 
     toggleTaskStatus(e) {
 
-        var task = {
-            ...this.props.task
-        };
+        var task = this.props.task;
 
         task.isDone = !task.isDone;
         this.parentUpdateCallback(task);

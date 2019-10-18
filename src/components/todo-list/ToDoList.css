@@ -28,7 +28,7 @@ input {
 }
 
 .todolist .task:hover {
-  background-color: #c085a1;
+  background-color: #f1b7d4;
 }
 
 .todolist .task .delete {
