@@ -29,7 +29,7 @@ class ToDoListTaskCreator extends Component {
 
     render() {
         return (
-            <div className="heder">
+            <div className="header">
                 <input onKeyPress={this.createNewTask.bind(this)} />
             </div>
         );
