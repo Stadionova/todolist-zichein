@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 
 class ToDoListTaskCreator extends Component {
 
-    constructor(yo) {
+    constructor() {
 
-        super(yo);
+        super();
 
         this.newIndex = 3;
 

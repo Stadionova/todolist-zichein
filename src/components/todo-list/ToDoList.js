@@ -1,16 +1,8 @@
 import React, { Component } from 'react';
 import './ToDoList.css';
-import Task from './Task.js';
 import ToDoListFooter from './ToDoListFooter.js';
 import ToDoListTaskCreator from './ToDoListTaskCreator.js';
 import TasksList from './TasksList.js';
-
-// todolist:
-// add task
-// delete task
-// edit task
-// check done tasks (checkbox)
-// strike out task is it done
 
 class ToDoList extends Component {
 
